@@ -48,17 +48,33 @@ public class App
 //        session.close();
 //        factory.close();
 
+        //read by Id
+          Student st = session.get(Student.class,1);
+//        System.out.println(st);
+        
+
         //update
 
-        Student st = session.get(Student.class,1);
-        st.setName("Neymarupdate");
-        st.setAddress("Brazilup");
-        st.setEmail("njr03@gmail.comup");
-        st.setCollegeName("gangwon nationalup");
+        // Student st = session.get(Student.class,1);
+        // st.setName("Neymarupdate");
+        // st.setAddress("Brazilup");
+        // st.setEmail("njr03@gmail.comup");
+        // st.setCollegeName("gangwon nationalup");
 
+        // Transaction tx = session.beginTransaction();
+        // session.save(st);
+        // tx.commit();
+
+        //delete
+
+
+        Student student = session.get(Student.class,1);
         Transaction tx = session.beginTransaction();
-        session.save(st);
+        session.delete(student);
         tx.commit();
+        System.out.println("deleted");
+
+        
 
       session.close();
       factory.close();
